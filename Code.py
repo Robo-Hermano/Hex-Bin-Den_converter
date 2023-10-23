@@ -36,7 +36,7 @@ if yeet == "Denary":
       for i in range(1,deus):
         bob = int(array[i])
         binar = int(str(binar)+(str(bob)))
-      return "binar
+      return binar
     x = denary_to_binary(nomnom)
     print(x,"is your number in binary.")
   elif yeti == "Hexadecimal":
@@ -204,7 +204,7 @@ elif yeet == "Hexadecimal":
           array.append(0)
           array.append(1)
           array.append(0)
-        else:
+        elif int(n[i])/1 >= 0:
           deus = 4
           c = deus-1
           b = int(n[i])
