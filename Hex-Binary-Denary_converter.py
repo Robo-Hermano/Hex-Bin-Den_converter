@@ -204,18 +204,22 @@ elif yeet == "Hexadecimal":
           array.append(0)
           array.append(1)
           array.append(0)
-        elif int(n[i])/1 >= 0:
-          deus = 4
-          c = deus-1
-          b = int(n[i])
-          while deus != 0:
-            if b-2**c>=0:
-              array.append(1)
+        else:
+          try:
+            deus = 4
+            c = deus-1
+            b = int(n[i])
+            while deus != 0:
+              if b-2**c>=0:
+                array.append(1)
               b = b-2**c
-            else:
-              array.append(0)
-            deus = deus - 1
-            c = c-1
+              else:
+                array.append(0)
+              deus = deus - 1
+              c = c-1
+          except:
+            print("this is not a valid hexadecimal number, you have ruined the integrity of this converter!!!!")
+            exit()
       binar = array[0]
       D = int(len(array))
       for i in range(1,D):
