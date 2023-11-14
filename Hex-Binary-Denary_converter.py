@@ -1,29 +1,46 @@
 import math
+#intro to state the purpose of this code
 yeet = input("Hello. This is the converter. Are you tired of all your calculations between different number bases? Do you suck at maths? Well, worry no more! I shall do all your conversions for you. First of all, enter the form you want to convert from.")
 list = ["Denary","Binary","Hexadecimal"]
 yeet = yeet.capitalize()
+#input sanitisation to make sure code isn't broken
 while yeet not in list:
   yeet = input("Sorry, that does not work. We can only convert from binary, hexadecimal or denary")
 yeti = input("Which form do you want to convert to?")
 yeti = yeti.capitalize()
 while yeti not in list:
   yeti = input("Sorry, that does not work. We can only convert to binary, hexadecimal or denary")
+#make sure number forms are different because some students are stoopid
 X = yeet == yeti
 if X == True:
   print("Well! No need to worry, no conversion is required!")
 else:
+    #input should be different depending because some Hexadecimal values cannot be stored as integers, but binary (only zeroes and ones) and denary can
   if yeet == "Hexadecimal":
     nomnom = input("enter your number")
   else:
     nomnom = int(input("enter your number"))
+    #binary input sanitisation
+    if yeet == "Binary":
+      while 1:
+        a = 0
+        for i in nomnom:
+          if i != 0 and i != 1:
+            a = 1
+        if a == 0:
+          break
+        else:
+          nomnom = int(input("not a valid binary number"))
 if yeet == "Denary":
   if yeti == "Binary":
     def denary_to_binary(n):
       array = []
+      #almost always way more than the highest power of two any number could reach
       deus = 100
       while n/2**deus < 1:
        deus = deus-1
       for i in range(deus+1):
+        #slowly building the array of zeroes and ones for the final number later
         if n-2**deus >= 0:
           array.append(1)
           n = n-2**deus
@@ -34,6 +51,7 @@ if yeet == "Denary":
       deus = int(len(array))
       binar = 1
       for i in range(1,deus):
+        #now combine the digits to make the final number
         bob = int(array[i])
         binar = int(str(binar)+(str(bob)))
       return binar
@@ -42,9 +60,11 @@ if yeet == "Denary":
   elif yeti == "Hexadecimal":
     def denary_to_hex(n):
       array = []
+      #same as binary put to power of 16
       deus = 100
       while n/16**deus < 1:
         deus = deus - 1
+      #more complex than to binary as 2 base vs 16 base
       for i in range(deus+1):
         if n-15*(16**deus)>=0:
           array.append("F")
@@ -72,6 +92,7 @@ if yeet == "Denary":
       deus = int(len(array))
       hexad = array[0]
       for i in range(1,deus):
+        #combine the digits again to make the final number
         bob = array[i]
         hexad = str(hexad)+str(bob)
       return hexad
