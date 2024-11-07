@@ -1,4 +1,3 @@
-import math
 #intro to state the purpose of this code
 yeet = input("Hello. This is the converter. Are you tired of all your calculations between different number bases? Do you suck at maths? Well, worry no more! I shall do all your conversions for you. First of all, enter the form you want to convert from.")
 list = ["Denary","Binary","Hexadecimal"]
